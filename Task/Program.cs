@@ -1,28 +1,21 @@
-﻿/* Задача 45: 
-Напишите программу, которая будет создавать копию заданного массива с помощью поэлементного копирования. */
+﻿/* Задача 41: 
+Пользователь вводит с клавиатуры M чисел. Посчитайте, сколько чисел больше 0 ввёл пользователь. */
 
-int[] RandomArray(int size, int start, int finish)
+float GetNumbersAboveZero(float sum)
 {
-    int[] arr = new int[size];
-    for(int i = 0; i<arr.Length; i++)
+    int count = 0;
+    for(int i=0; i<sum; i++)
     {
-        arr[i] = new Random().Next(start, finish);
+        Console.WriteLine("Enter a digit");
+        float number = (Convert.ToInt32(Console.ReadLine()));
+            if (number>0)
+            {
+                count++;
+            }
     }
-    return arr;
+    return(count);
 }
 
-int[] CopyArray(int[] array)
-{
-    int [] arraynew = new int[array.Length];
-    for(int i=0; i<array.Length; i++)
-    {
-        arraynew[i] = array[i];
-    }
-    return arraynew;
-}
-
-int[] array = RandomArray(10, 1, 100);
-int[] arraynew = CopyArray(array);
-
-Console.WriteLine(String.Join(",", array));
-Console.WriteLine(String.Join(",", arraynew));
+Console.WriteLine("Enter a nubmer");
+float sum = (Convert.ToInt32(Console.ReadLine()));
+Console.WriteLine($"the Quantity of numbers above 0 {GetNumbersAboveZero(sum)}");
