@@ -1,41 +1,28 @@
-﻿/* Задача 44: 
-Не используя рекурсию, выведите первые N чисел Фибоначчи. Первые два числа Фибоначчи: 0 и 1.
-Если N = 5 -> 0 1 1 2 3
-Если N = 3 -> 0 1 1
-Если N = 7 -> 0 1 1 2 3 5 8 */
+﻿/* Задача 45: 
+Напишите программу, которая будет создавать копию заданного массива с помощью поэлементного копирования. */
 
-int Fibonacci(int n)
+int[] RandomArray(int size, int start, int finish)
 {
-    int resut = 0;
-    int resut2 = 1;
-    int temp = 0;
-    for(int i=1; i < n; i++)
+    int[] arr = new int[size];
+    for(int i = 0; i<arr.Length; i++)
     {
-        Console.Write(resut + " ");
-        temp = resut2;
-        resut2 += resut;
-        resut = temp;
+        arr[i] = new Random().Next(start, finish);
     }
-    return (resut);
+    return arr;
 }
 
-void FibonacciSeminar(int n)
+int[] CopyArray(int[] array)
 {
-    int[] arr = new int[n];
-    arr[0] = 0;
-    arr[1] = 1;
-    for(int i=2; i < n; i++)
+    int [] arraynew = new int[array.Length];
+    for(int i=0; i<array.Length; i++)
     {
-        arr[i] = arr[i-1]+arr[i-2];
+        arraynew[i] = array[i];
     }
-    var str = string.Join(" ", arr);
-    Console.WriteLine($"Первые {n} чисел Фабоначчи   {str}");
+    return arraynew;
 }
 
+int[] array = RandomArray(10, 1, 100);
+int[] arraynew = CopyArray(array);
 
-
-Console.WriteLine("Enter a number");
-int n = Convert.ToInt32(Console.ReadLine());
-/* Console.WriteLine($"{Fibonacci(n)}"); */
-Console.WriteLine($"{Fibonacci(n)}");
-FibonacciSeminar(n);
+Console.WriteLine(String.Join(",", array));
+Console.WriteLine(String.Join(",", arraynew));
